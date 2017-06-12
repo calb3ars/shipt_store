@@ -20,6 +20,4 @@ class Order < ApplicationRecord
     through: :products,
     source: :categories
 
-  attr_reader :customer_first_name, :customer_last_name, :products, :number_purchased
-
 end

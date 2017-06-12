@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170612203116) do
     t.string   "status",      default: "Waiting for Delivery", null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.index ["customer_id"], name: "index_orders_on_customer_id", unique: true, using: :btree
+    t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
   end
 
 end

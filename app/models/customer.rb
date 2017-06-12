@@ -23,5 +23,4 @@ class Customer < ApplicationRecord
     through: :products,
     source: :categories
 
-  attr_reader :first_name, :last_name, :order_id, :orders, :categories, :number_purchased
 end
