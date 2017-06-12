@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612201306) do
+ActiveRecord::Schema.define(version: 20170612203116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20170612201306) do
     t.index ["first_name"], name: "index_customers_on_first_name", using: :btree
     t.index ["last_name"], name: "index_customers_on_last_name", using: :btree
     t.index ["order_id"], name: "index_customers_on_order_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "customer_id",                                  null: false
+    t.string   "status",      default: "Waiting for Delivery", null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id", unique: true, using: :btree
   end
 
 end
