@@ -8,6 +8,8 @@
 #  category_mapping :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  product_name     :string
+#  in_stock         :boolean          default("false")
 #
 
 class Product < ApplicationRecord
@@ -16,7 +18,7 @@ class Product < ApplicationRecord
   has_many :category_mappings
 
   has_many :categories,
-    through: :category_mappings
+    through: :category_mappings,
     source: :category
 
 end

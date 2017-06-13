@@ -45,3 +45,24 @@ orders = Order.create([
     status: "On the Way"
   }
 ])
+
+products = Product.create([
+  {
+    order_id: 1,
+    order_count: 1,
+    product_name: "Milk",
+    in_stock: true
+  },
+  {
+    order_id: 1,
+    order_count: 12,
+    product_name: "Eggs",
+    in_stock: true
+  },
+  {
+    order_id: 1,
+    order_count: 1,
+    product_name: "Bread",
+    in_stock: true
+  },
+])
