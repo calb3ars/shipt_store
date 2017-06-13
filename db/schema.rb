@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612234431) do
+ActiveRecord::Schema.define(version: 20170612235425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "category_mappings", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_mappings_on_category_id", using: :btree
+    t.index ["product_id", "category_id"], name: "unique_mapping_product_to_category", unique: true, using: :btree
+    t.index ["product_id"], name: "index_category_mappings_on_product_id", using: :btree
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
