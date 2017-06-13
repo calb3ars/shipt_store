@@ -10,7 +10,7 @@
 #
 
 class CategoryMapping < ApplicationRecord
-  validates :product_id, :category_id, presence:true
+  validates :product, :category, presence:true
 
   belongs_to :product
 

@@ -66,3 +66,101 @@ products = Product.create([
     in_stock: true
   },
 ])
+
+indices = Index.create([
+  {
+    product_id: 1,
+    category_id: 5
+  },
+  {
+    product_id: 1,
+    category_id: 11
+  },
+  {
+    product_id: 2,
+    category_id: 4
+  },
+  {
+    product_id: 3,
+    category_id: 4
+  },
+])
+
+# Category mapped to Safeway categories
+categories = Category.create([
+  {
+    category_name: "Baby Care"
+  },
+  {
+    category_name: "Beauty & Skincare"
+  },
+  {
+    category_name: "Beverages"
+  },
+  {
+    category_name: "Bread & Bakery"
+  },
+  {
+    category_name: "Breakfast & Cereal"
+  },
+  {
+    category_name: "Canned Goods & Soups"
+  },
+  {
+    category_name: "Cheese"
+  },
+  {
+    category_name: "Coffee"
+  },
+  {
+    category_name: "Condiments, Spices & Baking"
+  },
+  {
+    category_name: "Cookies, Snacks & Candy"
+  },
+  {
+    category_name: "Dairy, Eggs & Cheese"
+  },
+  {
+    category_name: "Deli"
+  },
+  {
+    category_name: "Flowers & Floral Arrangements"
+  },
+  {
+    category_name: "Frozen Foods"
+  },
+  {
+    category_name: "Fruits"
+  },
+  {
+    category_name: "Grains, Pasta & Sides"
+  },
+  {
+    category_name: "International Cuisine"
+  },
+  {
+    category_name: "Meat & Seafood"
+  },
+  {
+    category_name: "Paper, Cleaning & Home"
+  },
+  {
+    category_name: "Personal Care & Health"
+  },
+  {
+    category_name: "Pet Care"
+  },
+  {
+    category_name: "Poultry"
+  },
+  {
+    category_name: "Vegetables"
+  },
+  {
+    category_name: "Water"
+  },
+  {
+    category_name: "Wine, Beer & Spirits"
+  }
+])

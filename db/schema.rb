@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613002101) do
+ActiveRecord::Schema.define(version: 20170613180435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "category_mappings", force: :cascade do |t|
     t.integer  "product_id"
@@ -34,6 +40,15 @@ ActiveRecord::Schema.define(version: 20170613002101) do
     t.index ["first_name"], name: "index_customers_on_first_name", using: :btree
     t.index ["last_name"], name: "index_customers_on_last_name", using: :btree
     t.index ["order_id"], name: "index_customers_on_order_id", using: :btree
+  end
+
+  create_table "indices", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_indices_on_category_id", using: :btree
+    t.index ["product_id"], name: "index_indices_on_product_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
