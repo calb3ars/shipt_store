@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 customers = Customer.create([
   {
+    first_name: "John",
+    last_name: "Shipt"
+  },
+  {
     first_name: "test",
     last_name: "user"
   },
@@ -19,6 +23,7 @@ customers = Customer.create([
 orders = Order.create([
   {
     customer_id: 1,
+    status: "Waiting for Delivery"
   },
   {
     customer_id: 1,
@@ -49,47 +54,47 @@ orders = Order.create([
 products = Product.create([
   {
     order_id: 1,
-    order_count: 1,
-    product_name: "Milk",
+    order_count: 15,
+    product_name: "Bouquets",
     in_stock: true
   },
   {
-    order_id: 1,
+    order_id: 2,
     order_count: 12,
     product_name: "Eggs",
     in_stock: true
   },
   {
-    order_id: 1,
+    order_id: 3,
     order_count: 1,
     product_name: "Bread",
     in_stock: true
   },
 ])
 
-indices = Index.create([
+index = Index.create([
   {
     product_id: 1,
-    category_id: 5
-  },
-  {
-    product_id: 1,
-    category_id: 11
-  },
-  {
-    product_id: 2,
-    category_id: 4
-  },
-  {
-    product_id: 3,
-    category_id: 4
-  },
+    category_id: 1
+  }
+  # {
+  #   product_id: 1,
+  #   category_id: 11
+  # },
+  # {
+  #   product_id: 2,
+  #   category_id: 4
+  # },
+  # {
+  #   product_id: 3,
+  #   category_id: 4
+  # },
 ])
 
 # Category mapped to Safeway categories
 categories = Category.create([
   {
-    category_name: "Baby Care"
+    category_name: "Flowers & Floral Arrangements"
   },
   {
     category_name: "Beauty & Skincare"
@@ -125,7 +130,7 @@ categories = Category.create([
     category_name: "Deli"
   },
   {
-    category_name: "Flowers & Floral Arrangements"
+    category_name: "Baby Care"
   },
   {
     category_name: "Frozen Foods"

@@ -23,4 +23,26 @@ class Customer < ApplicationRecord
     through: :products,
     source: :categories
 
+  def example
+    self.orders.select do |order|
+      order.products.product_name == "Bouquets"
+    end
+  end
+
+  def order_count
+    self.orders.count
+  end
+
+  def order_status(status)
+    self.orders.select do |order|
+      order.status == status
+    end
+  end
+
+  def undelivered_orders
+    self.orders.select do |order|
+      order.status != "Delivered"
+    end
+  end
+
 end

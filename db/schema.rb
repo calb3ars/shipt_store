@@ -21,16 +21,6 @@ ActiveRecord::Schema.define(version: 20170613180435) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "category_mappings", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_category_mappings_on_category_id", using: :btree
-    t.index ["product_id", "category_id"], name: "unique_mapping_product_to_category", unique: true, using: :btree
-    t.index ["product_id"], name: "index_category_mappings_on_product_id", using: :btree
-  end
-
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -61,12 +51,11 @@ ActiveRecord::Schema.define(version: 20170613180435) do
 
   create_table "products", force: :cascade do |t|
     t.integer  "order_id"
-    t.integer  "order_count"
-    t.integer  "category_mapping"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
     t.string   "product_name"
-    t.boolean  "in_stock",         default: false
+    t.integer  "order_count"
+    t.boolean  "in_stock",     default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["order_id"], name: "index_products_on_order_id", using: :btree
   end
 

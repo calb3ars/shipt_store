@@ -1,24 +1,27 @@
-# README
+* Remove category_mapping column from Product model
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* john = Customer.first
+john.orders[0].products[0]
 
-Things you may want to cover:
+Customer.find_by_sql("SELECT * FROM customers where first_name = "John")
 
-* Ruby version
+category_id =
+john.orders[0].products[0].categories[0].id
 
-* System dependencies
+sql = "SELECT
+  a.id, a.first_name, e.id, e.category_name, c.order_count
 
-* Configuration
+FROM customers a
+  JOIN orders b ON
+    a.id = b.customer_id
+  JOIN products c ON
+    b.id = c.order_id
+  JOIN indices d ON
+    c.id = d.product_id
+  JOIN categories e ON
+    d.category_id = e.id
 
-* Database creation
+WHERE
+    a.first_name = 'John' AND category_name = 'Bouquets'"
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+step_1 = ActiveRecord::Base.connection.select_all(sql).rows[0]

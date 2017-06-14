@@ -14,7 +14,9 @@ class Order < ApplicationRecord
 
   belongs_to :customer
 
-  has_many :products
+  has_many :products,
+    class_name: "Product",
+    foreign_key: :order_id
 
   has_many :categories,
     through: :products,

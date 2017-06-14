@@ -13,7 +13,9 @@
 #
 
 class Product < ApplicationRecord
-  belongs_to :order
+  belongs_to :order,
+    class_name: "Order",
+    foreign_key: :order_id
 
   has_many :indices
 
